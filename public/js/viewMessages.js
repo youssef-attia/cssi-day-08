@@ -6,7 +6,6 @@ const getMessages = () => {
     messagesRef.on('value', (snapshot)=>{
         const data = snapshot.val();
         const message = document.querySelector("#message");
-        console.log(data)
         if(numEntries<5){
             for (const key in data) {
                 if(data[key].passcode===passcode.value){
@@ -15,10 +14,10 @@ const getMessages = () => {
             }
             numEntries++;
         } else {
-            alert("You've gone over your allotted entries! Please Wait for 5 seconds to try again")
+            alert("You've gone over your allotted entries! Please Wait for 5 seconds to try again");
             setTimeout(() => {
                 numEntries = 0;
-                alert("Attempts reset!")
+                alert("Attempts reset!");
             }, 5000);
         }
     })
